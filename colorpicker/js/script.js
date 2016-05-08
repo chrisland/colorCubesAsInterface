@@ -213,6 +213,10 @@ var select = function() {
           w: 300,
           h: 200
       }
+
+      $('#save').on('click', function () {
+        setRange();
+      });
   }
 
   function mouseDown(e) {
@@ -349,28 +353,40 @@ var select = function() {
   }
 
 
+  var range = {};
+
   function makeRange(coor) {
 
-    var r = [];
-    var g = [];
-    var b = [];
+    range = {
+      r: [],
+      g: [],
+      b: []
+    };
+
     for(var i = 0; i < coor.length; i++) {
-      r.push(coor[i].color.r);
-      g.push(coor[i].color.g);
-      b.push(coor[i].color.b);
+      range.r.push(coor[i].color.r);
+      range.g.push(coor[i].color.g);
+      range.b.push(coor[i].color.b);
 
       $('#r_'+i).text(i+': '+coor[i].color.r);
       $('#g_'+i).text(i+': '+coor[i].color.g);
       $('#b_'+i).text(i+': '+coor[i].color.b);
     }
 
-    $('#if_r').text( ' r > ' + r.min() +' && r < '+r.max() );
-    $('#if_g').text( ' g > ' + g.min() +' && g < '+g.max() );
-    $('#if_b').text( ' b > ' + b.min() +' && b < '+b.max() );
 
+    $('#if_r').text( ' r > ' + range.r.min() +' && r < '+range.r.max() );
+    $('#if_g').text( ' g > ' + range.g.min() +' && g < '+range.g.max() );
+    $('#if_b').text( ' b > ' + range.b.min() +' && b < '+range.b.max() );
+
+    $('#if_all').text (' r > ' + range.r.min() +' && r < '+range.r.max()+ ' && g > ' + range.g.min() +' && g < '+range.g.max()+' && b > ' + range.b.min() +' && b < '+range.b.max());
 
   }
 
+  function setRange() {
+
+    var db = new cStorage('range').save(range);
+
+  }
 
   init();
 

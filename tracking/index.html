@@ -34,14 +34,23 @@
       var context = canvas.getContext('2d');
 
 
-      tracking.ColorTracker.registerColor('green', function(r, g, b) {
-        if (r < 50 && g > 200 && b < 50) {
+      tracking.ColorTracker.registerColor('mycolor_1', function(r, g, b) {
+      //  if (r < 50 && g > 200 && b < 50) {
+        if (  r > 15 && r < 54 && g > 222 && g < 255 && b > 191 && b < 255 ) {
           return true;
         }
         return false;
       });
 
-      var tracker = new tracking.ColorTracker(['magenta', 'cyan', 'yellow', 'green']);
+      tracking.ColorTracker.registerColor('mycolor_2', function(r, g, b) {
+      //  if (r < 50 && g > 200 && b < 50) {
+        if ( r > 174 && r < 255 && g > 0 && g < 30 && b > 123 && b < 255 ) {
+          return true;
+        }
+        return false;
+      });
+
+      var tracker = new tracking.ColorTracker(['mycolor_1', 'mycolor_2']);
 
 
       tracking.track('#video', tracker, { camera: true });
