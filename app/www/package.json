@@ -1,0 +1,16 @@
+{
+  "name": "colorCubeAsInterface",
+  "description": "",
+  "version": "0.0.1",
+  "main": "index.html",
+  "single-instance": true,
+  "window": {
+    "toolbar": false,
+    "width": 1180,
+    "height": 700,
+    "min_width": 800,
+    "min_height": 600,
+    "frame": true,
+    "icon": "style/logo_icon.png"
+  }
+}

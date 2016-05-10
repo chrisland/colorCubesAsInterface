@@ -1,0 +1,9 @@
+{
+  "name": "colorCubeAsInterface",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-nw-builder": "^2.0.0"
+  },
+  "dependencies": {}
+}
